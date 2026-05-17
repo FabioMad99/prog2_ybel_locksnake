@@ -16,4 +16,15 @@ public final class Position {
   public int y() {
     return y;
   }
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof Position other)) return false;
+        return x == other.x && y == other.y;
+    }
+
+    @Override
+    public int hashCode() {
+        return 31 * x + y;
+    }
 }

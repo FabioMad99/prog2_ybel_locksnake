@@ -29,6 +29,19 @@ public final class Snake {
     return body.contains(position);
   }
 
+  public Snake move(Direction d) {
+      var newHead = nextHead(d);
+
+      var newBody = new ArrayList<Position>(body.size());
+      newBody.add(newHead);
+
+      for (int i = 0; i < body.size() - 1; i++) {
+          newBody.add(body.get(i));
+      }
+
+      return new Snake(newBody);
+  }
+
   public Snake grow(Direction d) {
     var newHead = nextHead(d);
     var newBody = new ArrayList<Position>(body.size() + 1);
